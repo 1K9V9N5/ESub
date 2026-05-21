@@ -270,37 +270,127 @@ if st.button("Unverbindliche Empfehlung berechnen"):
         # 1. Dynamische Kreatin-Berechnung
         if sport_tage >= 3:
             kr_menge = round(gewicht * 0.05, 1)
-            st.markdown(f"""<div class="result-card"><h4>💪 Kreatin Monohydrat</h4><p><b>Möglicher Richtwert:</b> ca. {kr_menge}g täglich nach der Belastung.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Geprüftes Produkt ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="result-card">
+                <h4>💪 Kreatin Monohydrat</h4>
+                <p><b>Möglicher Richtwert:</b> ca. {kr_menge}g täglich nach der Belastung.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Geprüftes Produkt ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
         # 2. Dynamische Kollagen-Berechnung
         kol_kapseln = 3 if sport_tage >= 4 else 2
-        st.markdown(f"""<div class="result-card"><h4>✨ Premium Kollagen</h4><p><b>Allgemeine Orientierung:</b> ca. {kol_kapseln} Kapseln täglich für deine Hautelastizität und Gelenke.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Geprüftes Produkt ansehen →</a></p></div>""", unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class="result-card">
+            <h4>✨ Premium Kollagen</h4>
+            <p><b>Allgemeine Orientierung:</b> ca. {kol_kapseln} Kapseln täglich für deine Hautelastizität und Gelenke.</p>
+            <p>
+                <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                    Geprüftes Produkt ansehen →
+                </a>
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
         # 3. Whey Protein an Trainingstagen
         if sport_tage >= 1:
-            st.markdown("""<div class="result-card"><h4>🥛 Molkenprotein (Whey)</h4><p><b>Allgemeine Orientierung:</b> 1-2 Shakes à 30g zur Deckung des sportlich erhöhten Eiweißbedarfs.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Geprüftes Produkt ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="result-card">
+                <h4>🥛 Molkenprotein (Whey)</h4>
+                <p><b>Allgemeine Orientierung:</b> 1-2 Shakes à 30g zur Deckung des sportlich erhöhten Eiweißbedarfs.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Geprüftes Produkt ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
         # 4. Omega-3 Logik
         if kein_fisch:
-            st.markdown("""<div class="result-card"><h4>🌱 Veganes Algenöl (Omega-3)</h4><p><b>Allgemeine Orientierung:</b> 2 Kapseln täglich zu einer Hauptmahlzeit als fischfreie Alternative.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Fischfreie Alternative ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="result-card">
+                <h4>🌱 Veganes Algenöl (Omega-3)</h4>
+                <p><b>Allgemeine Orientierung:</b> 2 Kapseln täglich zu einer Hauptmahlzeit als fischfreie Alternative.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Fischfreie Alternative ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
         else:
-            st.markdown("""<div class="result-card"><h4>🐟 Premium Omega-3 (Fischöl)</h4><p><b>Allgemeine Orientierung:</b> 1-2 Kapseln täglich zur Grundversorgung.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Geprüftes Produkt ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="result-card">
+                <h4>🐟 Premium Omega-3 (Fischöl)</h4>
+                <p><b>Allgemeine Orientierung:</b> 1-2 Kapseln täglich zur Grundversorgung.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Geprüftes Produkt ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
         # 5. Vitamin D3 Logik
         if wenig_sonne:
-            st.markdown("""<div class="result-card"><h4>☀️ Vitamin D3 + K2</h4><p><b>Allgemeine Orientierung:</b> 1 Tropfen/Kapsel jeden zweiten Tag bei geringer Sonnenexposition.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Geprüftes Produkt ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="result-card">
+                <h4>☀️ Vitamin D3 + K2</h4>
+                <p><b>Allgemeine Orientierung:</b> 1 Tropfen/Kapsel jeden zweiten Tag bei geringer Sonnenexposition.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Geprüftes Produkt ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
         # 6. Regeneration Basics bei viel Sport (Magnesium, Zink, MSM)
         if sport_tage >= 4:
-            st.markdown("""<div class="result-card"><h4>🔋 Regeneration & Gelenke (Magnesium, Zink, MSM)</h4><p><b>Allgemeine Orientierung:</b> Essenziell bei hoher Gelenkbelastung und Muskelspannung. Magnesium vor dem Schlafen einnehmen.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Regenerations-Bundle ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="result-card">
+                <h4>🔋 Regeneration & Gelenke (Magnesium, Zink, MSM)</h4>
+                <p><b>Allgemeine Orientierung:</b> Essenziell bei hoher Gelenkbelastung und Muskelspannung. Magnesium vor dem Schlafen einnehmen.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Regenerations-Bundle ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
         # 7. Pre-Workout Booster (Citrullin, Beta-Alanin, Coffein, Tyrosin, Taurin, Rote Beete)
         if sport_tage >= 4:
-            st.markdown("""<div class="result-card"><h4>🚀 Fokus & Pump Matrix (Pre-Workout Allrounder)</h4><p><b>Allgemeine Orientierung:</b> Ca. 30–45 Minuten vor harten Einheiten für mentalen Fokus und gesteigerten Blutfluss.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Fokus-Produkte ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="result-card">
+                <h4>🚀 Fokus & Pump Matrix (Pre-Workout Allrounder)</h4>
+                <p><b>Allgemeine Orientierung:</b> Ca. 30–45 Minuten vor harten Einheiten für mentalen Fokus und gesteigerten Blutfluss.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Fokus-Produkte ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
         # 8. Ashwagandha Logik
         if viel_stress:
-            st.markdown("""<div class="result-card"><h4>🌿 Ashwagandha (KSM-66)</h4><p><b>Allgemeine Orientierung:</b> 1 Kapsel am Abend zur Unterstützung der Cortisolsenkung.</p><p><a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">Geprüftes Produkt ansehen →</a></p></div>""", unsafe_allow_html=True)
+            st.markdown("""
+            <div class="result-card">
+                <h4>🌿 Ashwagandha (KSM-66)</h4>
+                <p><b>Allgemeine Orientierung:</b> 1 Kapsel am Abend zur Unterstützung der Cortisolsenkung.</p>
+                <p>
+                    <a href="https://amazon.de" target="_blank" style="color:#84CC16; text-decoration:none; font-weight:bold;">
+                        Geprüftes Produkt ansehen →
+                    </a>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
 # ==========================================
 # REINER, DEZENTER FOOTER & CREDITS
