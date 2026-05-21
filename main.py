@@ -266,7 +266,6 @@ if st.button("Unverbindliche Empfehlung berechnen"):
     else:
         st.success("Berechnung abgeschlossen.")
         st.markdown("### 📋 Vorgeschlagene Matrix")
-        st.info("💡 Klicke rechts in den Boxen auf das Kopier-Symbol, um den Begriff direkt bei Amazon einzufügen!")
         
         # 1. Dynamische Kreatin-Berechnung
         if sport_tage >= 3:
@@ -275,10 +274,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>💪 Kreatin Monohydrat</h4>
                 <p><b>Möglicher Richtwert:</b> ca. {kr_menge}g täglich nach der Belastung.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Kreatin Monohydrat Pulver hochrein", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
         # 2. Dynamische Kollagen-Berechnung
         kol_kapseln = 3 if sport_tage >= 4 else 2
@@ -286,10 +284,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
         <div class="result-card">
             <h4>✨ Premium Kollagen</h4>
             <p><b>Allgemeine Orientierung:</b> ca. {kol_kapseln} Kapseln täglich für deine Hautelastizität und Gelenke.</p>
-            <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
         </div>
         """, unsafe_allow_html=True)
-        st.code("Kollagen Hydrolysat Kapseln Premium", language=None)
+        st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
         # 3. Whey Protein an Trainingstagen
         if sport_tage >= 1:
@@ -297,10 +294,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🥛 Molkenprotein (Whey)</h4>
                 <p><b>Allgemeine Orientierung:</b> 1-2 Shakes à 30g zur Deckung des sportlich erhöhten Eiweißbedarfs.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Molkenprotein Whey Pulver neutral", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
         # 4. Omega-3 Logik
         if kein_fisch:
@@ -308,19 +304,17 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🌱 Veganes Algenöl (Omega-3)</h4>
                 <p><b>Allgemeine Orientierung:</b> 2 Kapseln täglich zu einer Hauptmahlzeit als fischfreie Alternative.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Algenoel Omega 3 Kapseln hochdosiert", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
         else:
             st.markdown("""
             <div class="result-card">
                 <h4>🐟 Premium Omega-3 (Fischöl)</h4>
                 <p><b>Allgemeine Orientierung:</b> 1-2 Kapseln täglich zur Grundversorgung.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Omega 3 Fischoel Kapseln hochdosiert", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
         # 5. Vitamin D3 Logik
         if wenig_sonne:
@@ -328,10 +322,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>☀️ Vitamin D3 + K2</h4>
                 <p><b>Allgemeine Orientierung:</b> 1 Tropfen/Kapsel jeden zweiten Tag bei geringer Sonnenexposition.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Vitamin D3 K2 Tropfen Depot", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
         # 6. Regeneration Basics bei viel Sport (Magnesium, Zink, MSM)
         if sport_tage >= 4:
@@ -339,10 +332,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🔋 Regeneration & Gelenke (Magnesium, Zink, MSM)</h4>
                 <p><b>Allgemeine Orientierung:</b> Essenziell bei hoher Gelenkbelastung und Muskelspannung. Magnesium vor dem Schlafen einnehmen.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Magnesium Bisglycinat Zink Kapseln", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
         # 7. Pre-Workout Booster
         if sport_tage >= 4:
@@ -350,10 +342,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🚀 Fokus & Pump Matrix (Pre-Workout Allrounder)</h4>
                 <p><b>Allgemeine Orientierung:</b> Ca. 30–45 Minuten vor harten Einheiten für mentalen Fokus und gesteigerten Blutfluss.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Pre Workout Booster Citrullin Beta Alanin", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
         # 8. Ashwagandha Logik
         if viel_stress:
@@ -361,10 +352,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🌿 Ashwagandha (KSM-66)</h4>
                 <p><b>Allgemeine Orientierung:</b> 1 Kapsel am Abend zur Unterstützung der Cortisolsenkung.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Ashwagandha KSM 66 Kapseln hochdosiert", language=None)
+            st.link_button("🛒 Auf Amazon suchen", "https://amazon.de")
 
 # ==========================================
 # REINER, DEZENTER FOOTER & CREDITS
