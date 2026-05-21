@@ -279,14 +279,11 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             st.markdown("""<div class="dashboard-card"><h4>🌿 Ashwagandha (KSM-66) <span class="target-value">Zielwert: 1 Kapsel</span></h4><p><b>Anwendung:</b> Abends vor dem Schlafen einnehmen.</p><p>Unterstützt den Organismus bei der Regulierung des Cortisolspiegels (Stresshormon).</p></div>""", unsafe_allow_html=True)
 
 # ==========================================
-# BEREICH 2: DAS DETAIL-LEXIKON (Vollständig repariert!)
+# BEREICH 2: DAS DETAIL-LEXIKON (Jetzt schlank und clean!)
 # ==========================================
 st.subheader("🔍 INHALTSSTOFFE NACHSCHLAGEN")
 
-with st.expander("📖 Übersicht aller Substanzen zum Stöbern öffnen"):
-    for name in sorted(list(SUPP_DB.keys())):
-        st.markdown(f'<div class="lexicon-box"><b>{name}</b></div>', unsafe_allow_html=True)
-
+# Der ungenutzte Expander ist gelöscht. Es startet direkt mit der Auswahl:
 auswahl = st.selectbox(
     "Wähle eine Substanz für biochemische Details:", 
     ["Bitte wählen..."] + sorted(list(SUPP_DB.keys()))
@@ -295,12 +292,11 @@ auswahl = st.selectbox(
 if auswahl != "Bitte wählen...":
     details = SUPP_DB[auswahl]
     
-    # Wir nutzen st.container() für absolute Stabilität bei Updates
     with st.container():
-        # Titel mit Icon direkt über Streamlit generiert
+        # Titel mit Icon direkt über Streamlit
         st.markdown(f"#### {details.get('icon', '🧬')} {auswahl}")
         
-        # Die Informationen sauber als strukturierter Text ausgegeben
+        # Die Informationen sauber und kontraststark strukturiert
         st.markdown(f"**Physiologischer Zweck:**\n{details['wirkung']}")
         st.markdown(f"**Biochemischer Prozess im Körper:**\n{details['koerper']}")
         st.markdown("---")
