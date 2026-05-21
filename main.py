@@ -208,20 +208,38 @@ st.subheader("⚡ DEIN PROFIL-CHECK")
 gewicht = st.number_input("Körpergewicht (kg):", min_value=40, max_value=150, value=80, step=1)
 sport_tage = st.slider("Trainingsfrequenz (Tage pro Woche):", 0, 7, 3)
 
+# --- Deine Eingabefelder (Gewicht und Slider bleiben ganz normal) ---
+
 st.markdown("<p style='text-align: center; font-size:0.9rem; font-weight:700; color:#FFFFFF; margin-bottom:5px; margin-top:15px;'>Ernährung & Lifestyle:</p>", unsafe_allow_html=True)
-kein_fisch = st.checkbox("Verzicht auf Fischkonsum / Fischallergie")
-wenig_sonne = st.checkbox("Geringe Sonnenexposition (< 15 Min. täglich)")
+
+# Trick 1: Unsichtbare Spalten zentrieren die Checkboxen am Smartphone
+c1, c2, c3 = st.columns([1, 10, 1])
+with c2:
+    kein_fisch = st.checkbox("Verzicht auf Fischkonsum / Fischallergie")
+    wenig_sonne = st.checkbox("Geringe Sonnenexposition (< 15 Min. täglich)")
 
 st.markdown(" ")
-# Diese Checkbox wird durch das neue CSS jetzt automatisch perfekt mittig gesetzt
-arzt_check = st.checkbox("Ich bestätige, dass diese Berechnung eine unverbindliche Orientierung darstellt.")
 
-if st.button("Unverbindliche Empfehlung berechnen"):
+# Trick 2: Eine eigene zentrierte Spalte für den Arzt-Check
+cc1, cc2, cc3 = st.columns([1, 12, 1])
+with cc2:
+    arzt_check = st.checkbox("Ich bestätige, dass diese Berechnung eine unverbindliche Orientierung darstellt.")
+
+# Trick 3: Eine schmale Spalte, die den Button exakt in die Mitte zwingt
+btn_c1, btn_c2, btn_c3 = st.columns([1, 8, 1])
+with btn_c2:
+    button_klick = st.button("Unverbindliche Empfehlung berechnen")
+
+# Ab hier fängt deine ganz normale Logik an (Wir prüfen, ob der Button geklickt wurde)
+if button_klick:
     if not arzt_check:
         st.error("⚠️ Bitte bestätige zuerst die Kenntnisnahme des Hinweises.")
     else:
         st.success("Analyse erfolgreich abgeschlossen.")
         st.markdown("<h3 style='text-align: center;'>📋 DEIN TÄGLICHER ATHLETEN-STACK</h3>", unsafe_allow_html=True)
+        
+        # ... ab hier laufen deine gewohnte Logik für die Karten weiter ...
+
         
         # 1. Kreatin (Dynamischer Badge-Look)
         if sport_tage >= 3:
