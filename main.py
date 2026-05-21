@@ -2,7 +2,7 @@ import streamlit as st
 
 # 1. App-Konfiguration für das Smartphone
 st.set_page_config(
-    page_title="ESUB - Premium Health",
+    page_title="ESUP - Premium Health",
     page_icon="🧬",
     layout="centered",
     initial_sidebar_state="collapsed"
