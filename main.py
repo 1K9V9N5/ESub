@@ -364,5 +364,5 @@ st.warning("Medizinischer Hinweis: Alle hier ausgegebenen Werte und Texte dienen
 
 col1, col2 = st.columns(2)
 with col2:
-    # Reines Weiß und kursiv über die integrierten Streamlit-Farbcodes
-    st.caption(":white[*Built by K.K.*]")
+    # Reines Python ohne Farb-Tricks: Fett und kursiv durch die Sternchen
+    st.caption("***Built by K.K.***")
