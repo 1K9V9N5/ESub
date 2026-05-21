@@ -101,7 +101,7 @@ st.markdown("""
         color: #E2E8F0;
     }
     
-    /* Der athletische Aktivierungs-Button */
+     /* Der athletische Aktivierungs-Button */
     .stButton>button {
         background: linear-gradient(90deg, #38BDF8 0%, #3b82f6 100%) !important;
         color: #FFFFFF !important;
@@ -113,11 +113,29 @@ st.markdown("""
         padding: 0.7rem !important;
         box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
         transition: 0.2s all;
+        text-align: center !important; 
     }
     
     .stButton>button:hover {
         transform: translateY(-1px);
         box-shadow: 0 6px 16px rgba(56, 189, 248, 0.3);
+    }
+
+    /* NEU: Zentriert den Text in den Checkboxen und zentriert die Boxen selbst am Handy */
+    .stCheckbox {
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+        margin: 15px auto !important;
+    }
+    .stCheckbox p {
+        text-align: center !important;
+    }
+    
+    /* NEU: Zentriert alle Streamlit Erfolgs- und Fehlermeldungen */
+    [data-testid="stNotification"] {
+        text-align: center !important;
+        justify-content: center !important;
     }
     
     /* Dezenter, lesbarer Disclaimer */
@@ -190,11 +208,12 @@ st.subheader("⚡ DEIN PROFIL-CHECK")
 gewicht = st.number_input("Körpergewicht (kg):", min_value=40, max_value=150, value=80, step=1)
 sport_tage = st.slider("Trainingsfrequenz (Tage pro Woche):", 0, 7, 3)
 
-st.markdown("<p style='font-size:0.9rem; font-weight:700; color:#FFFFFF; margin-bottom:5px; margin-top:15px;'>Ernährung & Lifestyle:</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size:0.9rem; font-weight:700; color:#FFFFFF; margin-bottom:5px; margin-top:15px;'>Ernährung & Lifestyle:</p>", unsafe_allow_html=True)
 kein_fisch = st.checkbox("Verzicht auf Fischkonsum / Fischallergie")
 wenig_sonne = st.checkbox("Geringe Sonnenexposition (< 15 Min. täglich)")
 
 st.markdown(" ")
+# Diese Checkbox wird durch das neue CSS jetzt automatisch perfekt mittig gesetzt
 arzt_check = st.checkbox("Ich bestätige, dass diese Berechnung eine unverbindliche Orientierung darstellt.")
 
 if st.button("Unverbindliche Empfehlung berechnen"):
@@ -202,7 +221,7 @@ if st.button("Unverbindliche Empfehlung berechnen"):
         st.error("⚠️ Bitte bestätige zuerst die Kenntnisnahme des Hinweises.")
     else:
         st.success("Analyse erfolgreich abgeschlossen.")
-        st.markdown("### 📋 DEIN TÄGLICHER ATHLETEN-STACK")
+        st.markdown("<h3 style='text-align: center;'>📋 DEIN TÄGLICHER ATHLETEN-STACK</h3>", unsafe_allow_html=True)
         
         # 1. Kreatin (Dynamischer Badge-Look)
         if sport_tage >= 3:
