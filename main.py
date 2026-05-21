@@ -264,9 +264,8 @@ if st.button("Unverbindliche Empfehlung berechnen"):
     if not arzt_check:
         st.error("⚠️ Bitte bestätige zuerst den Hinweis zur ärztlichen Absprache.")
     else:
-        st.success("Berechnung abgeschlossen.")
-        st.markdown("### 📋 Vorgeschlagene Matrix")
-        st.info("💡 Nutze den Kopier-Button rechts in den Boxen, um den Begriff direkt bei Amazon einzufügen!")
+        st.success("Berechnung abgeschlossen. Deine empfohlene Matrix:")
+        st.markdown("### 📋 Vorgeschlagene Orientierungswerte")
         
         # 1. Dynamische Kreatin-Berechnung
         if sport_tage >= 3:
@@ -275,10 +274,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>💪 Kreatin Monohydrat</h4>
                 <p><b>Möglicher Richtwert:</b> ca. {kr_menge}g täglich nach der Belastung.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Unterstützt die ATP-Zellenergie bei deiner Trainingsfrequenz von {sport_tage} Tagen pro Woche.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Kreatin Monohydrat Pulver", language=None)
 
         # 2. Dynamische Kollagen-Berechnung
         kol_kapseln = 3 if sport_tage >= 4 else 2
@@ -286,10 +284,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
         <div class="result-card">
             <h4>✨ Premium Kollagen</h4>
             <p><b>Allgemeine Orientierung:</b> ca. {kol_kapseln} Kapseln täglich für deine Hautelastizität und Gelenke.</p>
-            <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+            <p style="font-size:0.85rem; color:#94A3B8;">Berechnet auf Basis deines aktuellen Körpergewichts von {gewicht} kg.</p>
         </div>
         """, unsafe_allow_html=True)
-        st.code("Kollagen Hydrolysat Kapseln", language=None)
 
         # 3. Whey Protein an Trainingstagen
         if sport_tage >= 1:
@@ -297,10 +294,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🥛 Molkenprotein (Whey)</h4>
                 <p><b>Allgemeine Orientierung:</b> 1-2 Shakes à 30g zur Deckung des sportlich erhöhten Eiweißbedarfs.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Direkt am Morgen oder unmittelbar nach dem Krafttraining einnehmen.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Molkenprotein Whey Pulver", language=None)
 
         # 4. Omega-3 Logik
         if kein_fisch:
@@ -308,19 +304,17 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🌱 Veganes Algenöl (Omega-3)</h4>
                 <p><b>Allgemeine Orientierung:</b> 2 Kapseln täglich zu einer Hauptmahlzeit als fischfreie Alternative.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Essentiell für Herz, Gehirn und Gelenke, da du auf Fischprodukte verzichtest.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Algenoel Omega 3 Kapseln", language=None)
         else:
             st.markdown("""
             <div class="result-card">
                 <h4>🐟 Premium Omega-3 (Fischöl)</h4>
                 <p><b>Allgemeine Orientierung:</b> 1-2 Kapseln täglich zur Grundversorgung.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Unterstützt den Entzündungsstatus bei regelmäßiger sportlicher Belastung.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Omega 3 Fischoel Kapseln", language=None)
 
         # 5. Vitamin D3 Logik
         if wenig_sonne:
@@ -328,32 +322,29 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>☀️ Vitamin D3 + K2</h4>
                 <p><b>Allgemeine Orientierung:</b> 1 Tropfen/Kapsel jeden zweiten Tag bei geringer Sonnenexposition.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Wichtig für das Immunsystem und den Knochenbau bei vorwiegenden Indoor-Aktivitäten.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Vitamin D3 K2 Tropfen", language=None)
 
         # 6. Regeneration Basics bei viel Sport (Magnesium, Zink, MSM)
         if sport_tage >= 4:
             st.markdown("""
             <div class="result-card">
                 <h4>🔋 Regeneration & Gelenke (Magnesium, Zink, MSM)</h4>
-                <p><b>Allgemeine Orientierung:</b> Essenziell bei hoher Gelenkbelastung und Muskelspannung.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p><b>Allgemeine Orientierung:</b> Essenziell bei hoher Gelenkbelastung und Muskelspannung. Magnesium vor dem Schlafen einnehmen.</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Fördert die ZNS-Regeneration und die Regeneration der Sehnenstrukturen.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Magnesium Bisglycinat Zink Kapseln", language=None)
 
         # 7. Pre-Workout Booster
         if sport_tage >= 4:
             st.markdown("""
             <div class="result-card">
                 <h4>🚀 Fokus & Pump Matrix (Pre-Workout Allrounder)</h4>
-                <p><b>Allgemeine Orientierung:</b> Ca. 30–45 Minuten vor harten Einheiten für mentalen Fokus.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p><b>Allgemeine Orientierung:</b> Ca. 30–45 Minuten vor harten Einheiten für mentalen Fokus und gesteigerten Blutfluss.</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Enthält Aminosäuren wie L-Citrullin und Coffein für intensive Einheiten.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Pre Workout Booster Pulver", language=None)
 
         # 8. Ashwagandha Logik
         if viel_stress:
@@ -361,10 +352,9 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             <div class="result-card">
                 <h4>🌿 Ashwagandha (KSM-66)</h4>
                 <p><b>Allgemeine Orientierung:</b> 1 Kapsel am Abend zur Unterstützung der Cortisolsenkung.</p>
-                <p style="font-size:0.85rem; color:#84CC16; font-weight:bold; margin-bottom:0px;">🔍 Suchbegriff für Amazon:</p>
+                <p style="font-size:0.85rem; color:#94A3B8;">Unterstützt die Schlafqualität in Phasen erhöhter mentaler oder physischer Belastung.</p>
             </div>
             """, unsafe_allow_html=True)
-            st.code("Ashwagandha KSM 66 Kapseln", language=None)
 
 # ==========================================
 # REINER, DEZENTER FOOTER & CREDITS
