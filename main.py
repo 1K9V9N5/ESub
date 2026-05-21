@@ -86,15 +86,6 @@ st.markdown("""
         font-weight: 700;
         font-size: 0.85rem;
     }
-    .lexicon-box {
-        background: #111827;
-        border: 1px solid #1F2937;
-        padding: 10px 14px;
-        border-radius: 8px;
-        margin-bottom: 8px;
-        font-size: 0.9rem;
-        color: #E2E8F0;
-    }
     .stButton>button {
         background: linear-gradient(90deg, #38BDF8 0%, #3b82f6 100%) !important;
         color: #FFFFFF !important;
@@ -120,40 +111,10 @@ st.markdown("""
         border-top: 1px solid #334155;
         padding-top: 15px;
     }
-    
-    /* Verwandelt st.radio in moderne, horizontale Mobile-Buttons */
-    div[data-testid="stRadio"] > div {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 8px !important;
-        justify-content: center !important;
-    }
-    div[data-testid="stRadio"] label {
-        background: #1E293B !important;
-        border: 1px solid #334155 !important;
-        padding: 8px 14px !important;
-        border-radius: 20px !important;
-        color: #F8FAFC !important;
-        cursor: pointer !important;
-        font-size: 0.85rem !important;
-    }
-    /* Design für den aktuell ausgewählten Button */
-    div[data-testid="stRadio"] label[data-selected="true"] {
-        background: linear-gradient(90deg, #38BDF8 0%, #3b82f6 100%) !important;
-        border-color: #38BDF8 !important;
-        color: #0F172A !important;
-        font-weight: 700 !important;
-    }
-    /* Blendet den Standard-Radio-Kreis aus */
-    div[data-testid="stRadio"] input[type="radio"] {
-        display: none !important;
-    }
-    
     [data-testid="collapsedControl"] { display: none !important; }
     section[data-testid="stSidebar"] { display: none !important; }
     </style>
 """, unsafe_allow_html=True)
-
 
 
 # ==========================================
@@ -310,19 +271,13 @@ if st.button("Unverbindliche Empfehlung berechnen"):
             st.markdown("""<div class="dashboard-card"><h4>🌿 Ashwagandha (KSM-66) <span class="target-value">Zielwert: 1 Kapsel</span></h4><p><b>Anwendung:</b> Abends vor dem Schlafen einnehmen.</p><p>Unterstützt den Organismus bei der Regulierung des Cortisolspiegels (Stresshormon).</p></div>""", unsafe_allow_html=True)
 
 # ==========================================
-# ==========================================
-# BEREICH 2: DAS DETAIL-LEXIKON (100% Tastatur-Sicher!)
+# BEREICH 2: DAS DETAIL-LEXIKON (Klassisches Dropdown)
 # ==========================================
 st.subheader("🔍 INHALTSSTOFFE NACHSCHLAGEN")
 
-# Alphabetisch sortierte Liste deiner 7 Kern-Supplements
-supp_liste = sorted(list(SUPP_DB.keys()))
-
-# st.radio erzeugt reine Klick-Flächen, die niemals die Tastatur triggern
-auswahl = st.radio(
-    "Wähle eine Substanz für biochemische Details:",
-    options=["Bitte wählen..."] + supp_liste,
-    label_visibility="collapsed" # Blendet die doppelte Beschriftung aus
+auswahl = st.selectbox(
+    "Wähle eine Substanz für biochemische Details:", 
+    ["Bitte wählen..."] + sorted(list(SUPP_DB.keys()))
 )
 
 if auswahl != "Bitte wählen...":
@@ -332,7 +287,7 @@ if auswahl != "Bitte wählen...":
         # Titel mit Icon direkt über Streamlit
         st.markdown(f"#### {details.get('icon', '🧬')} {auswahl}")
         
-        # Informationen sauber und kontraststark strukturiert
+        # Die Informationen sauber und kontraststark strukturiert
         st.markdown(f"**Physiologischer Zweck:**\n{details['wirkung']}")
         st.markdown(f"**Biochemischer Prozess im Körper:**\n{details['koerper']}")
         st.markdown("---")
